@@ -1,0 +1,130 @@
+.atom-item-container {
+  border: 1px dashed transparent;
+  position: relative;
+}
+
+.atom-item-container > .atom-item-menu {
+  position: absolute;
+  background: orange;
+  padding: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  left: 2px;
+  top: -30px;
+  height: 30px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+}
+
+.atom-item-container:hover {
+  border: 1px dashed orange;
+}
+.atom-item-container:hover > .atom-item-menu {
+  display: flex !important;
+}
+
+.atom-item-menu-btn {
+  height: 25px;
+  font-size: 13px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.atom-item-menu-list {
+  width: 200px;
+  position: absolute;
+  z-index: 100;
+  height: 200px;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 3px;
+  top: 27px;
+  display: none;
+  flex-direction: column;
+}
+.atom-item-menu-list > button {
+  width: 100%;
+  margin: 1px;
+}
+.atom-item-menu-btn:hover + .atom-item-menu-list,
+.atom-item-menu-list:hover {
+  display: flex;
+}
+.atom-list {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.atom-list-bottom {
+  display: none;
+  border-top: none;
+  border-right: 1px dashed transparent;
+  border-bottom: 1px dashed transparent;
+  border-left: 1px dashed transparent;
+  padding: 3px;
+}
+.atom-list:hover .atom-list-bottom {
+  display: block;
+}
+.atom-list-content {
+  border: 1px dashed transparent;
+}
+.atom-list-bottom:hover {
+  border-top: none;
+  border-right: 1px dashed blueviolet;
+  border-bottom: 1px dashed blueviolet;
+  border-left: 1px dashed blueviolet;
+}
+.atom-list-bottom:hover + .atom-list-content {
+  border: 1px dashed blueviolet;
+}
+
+.atom-dialog {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.atom-dialog-content {
+  background: #fff;
+  width: 80%;
+  max-width: 600px;
+  min-height: 350px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-shadow: 2px 2px 10px 0 #4f4a4a;
+  box-shadow: 2px 2px 10px 0 #4f4a4a;
+  position: relative;
+}
+.atom-dialog-content > * {
+  width: 100%;
+}
+.atom-dialog-body {
+  flex: 1;
+  padding: 15px;
+}
+.atom-dialog-header,
+.atom-dialog-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background: #efefef;
+}
+
+.btnbtndialog {
+  border: none;
+  background: transparent;
+}

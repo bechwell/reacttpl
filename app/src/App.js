@@ -1,13 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useLayoutEffect } from "react";
+import "./App.css";
+import Accueil from "./Page/Accueil";
+import connectToStore from "./Store/connect";
+import { Route, Switch } from 'react-router';
+import useLayout from './Com/useLayout';
+import DefaultLayout from "./Layout/DefaultLayout";
+import Loading from "./Com/Loading";
+import Atom from './Atom/Atom';
 
-function App() {
+const AccueilScreen = useLayout(DefaultLayout, { title: "test" })(Accueil)
+const AtomScreen = useLayout(DefaultLayout)(Atom)
+
+function App({ store, api }) {
+  useLayoutEffect(store.init, [])
+  if (store.loading) return <Loading />
+
   return (
-    <div className="App">
+    <Switch>
+      <Route exact={true} path="/" component={AccueilScreen} />
+      <Route exact={true} path="/test" component={Accueil} />
+      <Route exact={false} path="/*" component={AtomScreen} />
+    </Switch>
+  )
 
-    </div>
-  );
 }
 
-export default App;
+
+
+export default connectToStore(App);
+
+
